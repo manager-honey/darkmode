@@ -1,1 +1,9 @@
 ++++++++++ PROJECT RELATED TODO ++++++++++
+
+Create a branch chore/setup-folder-structure from darkmode1.0
+chore: setup folder structure
+- chore: install react icons
+- chore: create icons folder and component folder.
+- chore: update imports path.
+- feat: add global.css
+- chore: link global.css
