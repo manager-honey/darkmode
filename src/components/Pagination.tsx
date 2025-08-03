@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, type SetStateAction } from "react";
 
 interface PaginationProps {
   totalRecords: number;
   entriesCount: number;
-  page: number;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<SetStateAction<number>>;
 }
 
 interface PageBlockProps {
@@ -30,9 +31,9 @@ export const PageBlock = ({
 export const Pagination = ({
   totalRecords,
   entriesCount,
-  page = 0,
+  currentPage,
+  setCurrentPage,
 }: PaginationProps) => {
-  const [currentPage, setCurrentPage] = useState(page);
   const noOfPages = useMemo(() => {
     if (totalRecords && entriesCount) {
       return Math.ceil(totalRecords / entriesCount);
