@@ -1,3 +1,5 @@
+import { Button } from "./Button";
+
 export const App = () => {
-  return <div className="bg-green-500">App</div>;
+  return <Button isLoading className="bg-green-500 text-white">Add</Button>;
 };
