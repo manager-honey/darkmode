@@ -1,10 +1,9 @@
 import { InlineLoader } from "./InlineLoader";
 
-interface ButtonProps {
-  children?: React.ReactNode;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
   className?: string;
   iconPath?: string;
-  onClick?: () => void;
   isLoading?: boolean;
   variant?: ButtonVariant;
   disabled?: boolean;
@@ -32,15 +31,16 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <button
-      {...rest}
+ 
       disabled={disabled}
       onClick={onClick}
       aria-busy={isLoading}
       className={`py-2 px-4 rounded-md min-w-18 focus:outline-gray-400 shadow transition-colors duration-300 ease-in-out ${
         disabled ? "opacity-50 cursor-not-allowed" : " cursor-pointer"
       } ${variantClasses[variant]} ${className ?? ""}`}
+      {...rest}
     >
-      <span className="flex flex-row items-center justify-center gap-2">
+      <div className="flex flex-row items-center justify-center gap-2">
         {isLoading ? (
           <InlineLoader />
         ) : (
@@ -55,7 +55,7 @@ export const Button = (props: ButtonProps) => {
           )
         )}
         {children}
-      </span>
+      </div>
     </button>
   );
 };
